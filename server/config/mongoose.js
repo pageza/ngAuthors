@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Storing the database value for ease
-const db = 'ngRateMyCakes'
+const db = 'ngAuthors'
 
 // Connecting to MongoDB
 mongoose.connect(

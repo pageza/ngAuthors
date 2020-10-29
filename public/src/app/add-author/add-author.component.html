@@ -1,0 +1,14 @@
+<div class="navbar">
+  <a [routerLink]="['']">Home</a>
+</div>
+<div>
+  <h4>Add a new author:</h4>
+  <form class="card" style="width: 30%">
+    <label>Name:</label>
+    <input type="text" name="author" ngModel="author" placeholder="Enter an author" style="margin-bottom: 10px">
+    <div class="row">
+      <button style="margin-left: 15px" (click)="goHome()">Cancel</button>
+      <input style="margin-left: 15px" type="submit" value="Submit">
+    </div>
+  </form>
+</div>
