@@ -12,6 +12,9 @@ export class AuthorService {
     return this._http.get('/authors')
   }
   //TODO: get one author
+  createAuthor(author) {
+    return this._http.post('/authors', author)
+  }
   //TODO: create an author
   //TODO: edit an author
   //TODO: delete an author
