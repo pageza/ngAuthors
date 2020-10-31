@@ -1,17 +1,22 @@
 const mongoose = require('mongoose');
+const mongooseBeautifulUniqueValidation = require('mongoose-beautiful-unique-validation')
+const mongooseValidationErrorTransform = require('mongoose-validation-error-transform')
 const fs = require('fs');
 const path = require('path');
 
 // Storing the database value for ease
 const db = 'ngAuthors'
 
+mongoose.plugin(mongooseBeautifulUniqueValidation)
+mongoose.plugin(mongooseValidationErrorTransform)
 // Connecting to MongoDB
 mongoose.connect(
 'mongodb://localhost/'+db
 , {
   useNewUrlParser: true,
   useCreateIndex: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useFindAndModify: false
 });
 
 // Putting the path to the models into a constant to use below

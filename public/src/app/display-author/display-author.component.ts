@@ -22,6 +22,8 @@ export class DisplayAuthorComponent implements OnInit {
     this._router.navigate(['edit', id])
   }
   delete(id) {
-
+    const observable = this._authors.deleteAuthor(id)
+    observable.subscribe( data => console.log(data))
+    this.ngOnInit()
   }
 }

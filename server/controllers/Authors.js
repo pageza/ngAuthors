@@ -17,19 +17,19 @@ module.exports = {
         const newAuthor = new Author()
         newAuthor.author = req.body.author;
         newAuthor.save()
-            .then( newAuthor => res.redirect('/authors'))
+            .then( newAuthor => res.json(newAuthor))
             .catch( err => res.json(err))
     },
     editAuthor: (req,res) => {
-        Author.updateOne({_id: req.params.id}, {
+        Author.findByIdAndUpdate({_id: req.params.id}, {
             author: req.body.author
-        })
-            .then( data => res.redirect('/authors'))
+        }, {runValidators: true})
+            .then( data => res.json(data))
             .catch(err => res.json(err))
     },
     destroyAuthor: (req,res) => {
         Author.deleteOne({_id: req.params.id})
-            .then(res.redirect('/authors'))
+            .then(data => res.json(data))
             .catch(err => res.json(err))
     }
 

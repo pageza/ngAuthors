@@ -4,8 +4,9 @@
 <div>
   <h4>Add a new author:</h4>
   <form class="card" style="width: 30%" (submit)="createAuthor(newAuthor)">
-    <label>Name:</label>
-    <input type="text" name="author" ngModel="author" placeholder="Enter an author" style="margin-bottom: 10px">
+    <p style="color: red; font-style: italic" *ngIf="errors">{{errors.author.message}}</p>
+    <label for="author">Name:</label>
+    <input id="author" type="text" name="author" [(ngModel)]="newAuthor.author" placeholder="Enter an author" style="margin-bottom: 10px">
     <div class="row">
       <button style="margin-left: 15px" (click)="goHome()">Cancel</button>
       <input style="margin-left: 15px" type="submit" value="Submit">

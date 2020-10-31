@@ -1,9 +1,13 @@
-<p>edit-author works!</p>
-<div class="card">
-  <form class="">
-    <label for="name">Name: </label>
-    <input type="text" name="author" [(ngModel)]="author" placeholder="">
-    <button type="submit" name="button">Cancel</button>
-    <input type="submit" name="submit" value="Submit">
+<div class="">
+  <h4>Edit this Author: </h4>
+  <form class="card" style="width: 30%" (submit)="editAuthor(author)">
+    <p style="color: red; font-style: italic" *ngIf="errors">{{errors.author.message}}</p>
+    <label for="author">Name: </label>
+    <input id="author" type="text" name="author" [(ngModel)]="author.author">
+    <div class="row">
+      <button style="margin-left: 15px" (click)="goHome()">Cancel</button>
+      <input style="margin-left: 15px" type="submit" value="Submit">
+    </div>
   </form>
 </div>
+

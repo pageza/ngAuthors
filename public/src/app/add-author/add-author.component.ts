@@ -8,7 +8,7 @@ import { AuthorService } from "../author.service";
 })
 export class AddAuthorComponent implements OnInit {
   newAuthor: any = {'author': ''};
-
+  errors: any;
   constructor(
     private _router: Router,
     private _authors: AuthorService
@@ -21,7 +21,16 @@ export class AddAuthorComponent implements OnInit {
   }
   createAuthor(author) {
     const observable = this._authors.createAuthor(author)
-    observable.subscribe(data => console.log(data))
-    this.newAuthor = {'author': ''}
+    observable.subscribe(data => {
+      if (data['errors']) {
+        this.errors = data['errors']
+      } else {
+        console.log("success")
+        this.newAuthor = {'author': ''}
+        this.goHome()
+      }
+    })
+
+
   }
 }
